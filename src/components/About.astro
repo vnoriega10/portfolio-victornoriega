@@ -1,0 +1,73 @@
+<section class="bg-gray-900/60 justify-center items-center transition-all duration-500" id="sobre-mi">
+    <div class="m-auto w-5/6 max-w-[1000px] flex flex-col py-28">
+        <div class="text-start">
+            <h1 class="text-4xl font-bold text-blue-500">Sobre mí</h1>
+            <p class="text-slate-100 text-lg font-normal mt-1">
+                Hola, soy Victor Noriega, un apasionado desarrollador web frontend y estudiante de octavo semestre de Ingeniería de Sistemas en Colombia. Mi enfoque se centra en la creación de experiencias web impactantes y funcionales.
+                Me considero una persona totalmente autónoma y con una gran capacidad de aprendizaje. 
+            </p>
+        </div>
+        <div class="flex flex-col gap-10 lg:flex-row lg:gap-12">
+            <div class="flex flex-col gap-2 max-w-xs">
+                <h2 class="text-blue-500 text-2xl font-semibold mt-4">Educación</h2>
+                <ol class=" marker:text-blue-500 list-disc flex flex-row flex-wrap lg:flex-col gap-5 lg:gap-4 max-w-sm py-2">
+                    <li class="ml-4 text-slate-100 text-lg">Institución Educativa Técnico Industrial Pedro Castro Monsalvo <br> <span class="text-slate-400 text-base">Bachiller Técnico</span> <br> <span class="text-slate-400 text-base">( 2013 - 2018 )</span></li>
+                    <li class="ml-4 text-slate-100 text-lg">Universidad Popular del Cesar <br> <span class="text-slate-400 text-base">Ingeniería de Sistemas</span> <br> <span class="text-slate-400 text-base">( 2020 - Actual )</span></li>
+                </ol>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h2 class="text-blue-500 text-2xl font-semibold mt-4">Cursos</h2>
+                <ol class=" marker:text-blue-500 list-disc flex flex-row flex-wrap lg:flex-col gap-5 lg:gap-4 py-2">
+                    <li class="ml-4 text-slate-100 text-lg">Programación Web desde Cero</li>
+                    <li class="ml-4 text-slate-100 text-lg">Back End Development and Apis</li>
+                    <li class="ml-4 text-slate-100 text-lg">Github Foundations</li>
+                </ol>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h2 class="text-blue-500 text-2xl font-semibold mt-4">Habilidades</h2>
+                <div class="flex fle-wrap gap-4 items-center">
+                    
+                    <div class="flex flex-col gap-2">
+                        <img src="assets/img/html-icon.svg" alt="" class="animated-image w-13 h-14">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <img src="assets/img/css-icon.svg" alt="" class="animated-image w-13 h-14">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <img src="assets/img/node-icon.svg" alt="" class="animated-image w-12 h-13">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <img src="assets/img/astro-icon.svg" alt="" class="animated-image w-9 h-9"/>
+                        
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <img src="assets/img/react-icon.svg" alt="" class="animated-image w-12 h-13">
+                        
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <img src="assets/img/tailwind-icon.svg" alt="" class="animated-image w-12 h-13">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style is:inline>
+
+
+.animated-image {
+    transform-style: preserve-3d; /* Indica que se debe preservar la transformación 3D en el elemento hijo */
+    animation: rotateContinous 10s linear infinite; /* Define la animación con nombre moveLeftRight, 4 segundos de duración, lineal y repetición infinita */
+}
+
+@keyframes rotateContinous {
+    0% {
+        transform: rotateY(0);
+    }
+    100% {
+        transform: rotateY(360deg); /* Regresa la imagen a la posición inicial y rota 360 grados en el eje Y */
+    }
+}
+</style>

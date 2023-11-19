@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'GeistSans';
+    src: url('../fonts/._Geist-Black.woff2') format('woff2'), url('../fonts/._Geist-Bold.woff2') format('woff2'), url('../fonts/._Geist-Light.woff2') format('woff2'),
+    url('../fonts/._Geist-Medium.woff2') format('woff2'), url('../fonts/._Geist-Regular.woff2') format('woff2'), url('../fonts/._Geist-SemiBold.woff2') format('woff2'), 
+    url('../fonts/._Geist-Thin.woff2') format('woff2'), url('../fonts/._Geist-UltraBlack.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

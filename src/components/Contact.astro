@@ -1,0 +1,78 @@
+<section class="bg-slate-900/60 justify-center items-center" id="contacto">
+    <div class="flex flex-col m-auto max-w-[1000px] justify-between lg:flex-row items-center py-20">
+        <div>
+            <h1 class="text-4xl text-blue-500 font-bold">Contacto</h1>
+            <p class="text-xl text-slate-100 ">No dudes en contactarte conmigo. </p>
+            <div class="flex flex-row gap-2 items-center pt-8 pb-2 text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail-filled" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" stroke-width="0" fill="currentColor"></path>
+                    <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" stroke-width="0" fill="currentColor"></path>
+                </svg>
+                <p class="text-base text-slate-100 font-base text-center">alfonsomedina0645@gmail.com</p>
+            </div>
+            <div class="flex flex-row gap-2 items-center text-blue-500  pb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-location-filled" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M20.891 2.006l.106 -.006l.13 .008l.09 .016l.123 .035l.107 .046l.1 .057l.09 .067l.082 .075l.052 .059l.082 .116l.052 .096c.047 .1 .077 .206 .09 .316l.005 .106c0 .075 -.008 .149 -.024 .22l-.035 .123l-6.532 18.077a1.55 1.55 0 0 1 -1.409 .903a1.547 1.547 0 0 1 -1.329 -.747l-.065 -.127l-3.352 -6.702l-6.67 -3.336a1.55 1.55 0 0 1 -.898 -1.259l-.006 -.149c0 -.56 .301 -1.072 .841 -1.37l.14 -.07l18.017 -6.506l.106 -.03l.108 -.018z" stroke-width="0" fill="currentColor"></path>
+                </svg>
+                <p class="text-base text-slate-100 font-base text-cente">Valledupar, Colombia</p>
+            </div>
+        </div>
+        <div class="bg-slate-950 py-4 px-5 rounded-md shadow-lg w-[300px] mt-4">
+            <form  id="miFormulario" method="POST" class="flex flex-col gap-2" onsubmit="enviarFormulario(event)">
+                <label for="nombre" class="text-slate-100 text-base">Nombre:</label>
+                <input name="nombre" type="text" class="w-full rounded-md px-3 py-1 bg-slate-900 border border-slate-700 text-slate-100 hover:border-blue-500" placeholder="Nombre" required>
+                <label for="Email" class="text-slate-100 text-base">Correo electrónico:</label>
+                <input name="Email" type="email" class="w-full rounded-md px-3 py-1 bg-slate-900 border border-slate-700 text-slate-100 hover:border-blue-500" placeholder="Correo electrónico" required>
+                <label for="asunto" class="text-slate-100 text-base">Asunto:</label>
+                <input name="asunto" type="text" class="w-full rounded-md px-3 py-1 bg-slate-900 border border-slate-700 text-slate-100 hover:border-blue-500" placeholder="Asunto" required>
+                <label for="mensaje" class="text-slate-100 text-base">Mensaje:</label>
+                <textarea name="mensaje" rows="6" class="w-full rounded-md px-3 py-1 bg-slate-900 border border-slate-700 text-slate-100 hover:border-blue-500" placeholder="Mensaje" required></textarea>
+                <button type="submit" class="bg-blue-500 transition text-slate-900 font-semibold py-2 hover:bg-blue-300 hover:scale-105 rounded-md mt-2" >Enviar</button>
+                <p id="mensaje-exito" class="text-green-500 text-center text-sm mt-2 hidden">¡Mensaje enviado con éxito!</p>
+                
+            </form>
+        </div>
+    </div>
+</section>
+
+<script is:inline>
+    function enviarFormulario(event) {
+        event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+
+        // Obtiene los datos del formulario
+        const formulario = document.getElementById("miFormulario");
+        const formData = new FormData(formulario);
+        const data = {}
+
+        formData.forEach((value, key) => {
+            data[key] = decodeURI(value);
+        });
+
+        // Realiza una solicitud AJAX al servidor
+        fetch('https://api-send-email-dev-prhz.4.us-1.fl0.io/enviar-correo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.text())
+        .then(data => {
+            
+            const mensajeExito = document.getElementById('mensaje-exito');
+            mensajeExito.style.display = 'block';
+
+            setTimeout(() => {
+                mensajeExito.style.display = 'none';
+            }, 2000);
+            
+            formulario.reset();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
+
