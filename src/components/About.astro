@@ -59,7 +59,8 @@
 
 .animated-image {
     transform-style:preserve-3d; /* Indica que se debe preservar la transformación 3D en el elemento hijo */
-    animation: rotateContinous 10s linear ease-in; /* Define la animación con nombre moveLeftRight, 4 segundos de duración, lineal y repetición infinita */
+    animation: rotateContinous 10s linear infinite; /* Define la animación con nombre moveLeftRight, 4 segundos de duración, lineal y repetición infinita */
+    z-index: 900;
 }
 
 @keyframes rotateContinous {
