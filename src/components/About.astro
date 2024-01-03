@@ -22,7 +22,11 @@
                     <li class="ml-4 text-slate-100 text-lg">Responsive Web Design</li>
                     <li class="ml-4 text-slate-100 text-lg">Back End Development and Apis</li>
                     <li class="ml-4 text-slate-100 text-lg">Github Foundations</li>
+        
                 </ol>
+                <div class="flex flex-row ">
+                    <a id="certficatebutton" href="#certificate" class="bg-blue-600 text-slate-100 py-2 px-4 rounded-md font-semibold text-center hover:bg-blue-700">Ver certificados</a>
+                </div>
             </div>
             <div class="flex flex-col gap-2">
                 <h2 class="text-blue-500 text-2xl font-semibold mt-4">Habilidades</h2>
@@ -53,3 +57,42 @@
         </div>
     </div>
 </section>
+<section class=" lg:w-2/5 w-[350px] h-[500px] z-10 py-2 border border-slate-600 rounded-md bg-gray-950 hidden backdrop-filter backdrop-blur-lg fixed top-0 right-0 left-0 bottom-0 m-auto justify-center overflow-x-auto" id="certificate">
+    <button onclick="closeCertificate()" class="text-slate-100 absolute top-4 right-4 ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+    </button>
+    <div class="flex flex-col gap-2 text-center">
+        <h2 class="text-blue-500 text-2xl font-semibold mt-4">Certificados</h2>
+        <div class="flex flex-col flex-wrap gap-2 px-4 pt-1 pb-5">
+            <img src="assets/img/programacion-web-certificate.jpg" alt="" class="w-96 h-auto">
+            <img src="assets/img/responsive-certificate.png" alt="" class="w-96 h-auto">
+            <img src="assets/img/back-certificate.png" alt="" class="w-96 h-auto">
+        </div>
+    </div>
+</section>
+
+</section>
+<script is:inline>
+    
+    const certficatebutton = document.getElementById('certficatebutton');
+    const certificate = document.getElementById('certificate');
+    const sobremi = document.getElementById('sobre-mi');
+    const header = document.getElementById('header');
+    const body = document.getElementById('body');
+    certficatebutton.addEventListener('click', () => {
+        certificate.style.display = 'flex';
+        sobremi.style.filter = 'blur(5px)';
+        if(certificate){
+            header.style.display = 'none';
+            body.style.overflow = 'hidden';
+        }
+    })
+
+    function closeCertificate(){
+        certificate.style.display = 'none';
+        sobremi.style.filter = 'blur(0px)';
+        header.style.display = 'flex';
+        body.style.overflow = 'auto';
+    }
+    
+</script>
